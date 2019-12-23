@@ -1,0 +1,132 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="excb" Content="Call excel!" HorizontalAlignment="Left" Margin="443,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.18,1.504" Click="excel_button" Background="#FFB1B1FF"/>
+
+
+
+        <StackPanel>
+            <TextBlock Text=" Input starting row and col values" Margin="0,0,600,0"/>
+            <StackPanel Orientation="Horizontal" Margin="5,5,0,20">
+                <TextBox x:Name="start_rowInput"
+                     Width="59" HorizontalAlignment="Left" RenderTransformOrigin="-1.41,-1.637" Text=""/>
+                <!--  <Button Content="input start row" Click="Input_Start_Row_Button"/>-->
+
+
+            </StackPanel>
+        </StackPanel>
+
+
+
+
+        <TextBlock Margin="5,40,704,334"><Run Text="Starting cell"/><LineBreak/><Run Text="(e.g. A1)"/></TextBlock>
+
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="200, 22, 0, 20">
+                <!--<Button Content="input start col" Click="Input_Start_Col_Button"/>-->
+            </StackPanel>
+            <TextBlock x:Name="start_colOutput" Margin="200,-20,450,0"/>
+        </StackPanel>
+
+        <TextBlock Text=" Input ending row and col values" Margin="0,90,600,303"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,120,0,20">
+                <TextBox x:Name="rowInput"
+                     Width="59" HorizontalAlignment="Left" RenderTransformOrigin="-1.41,-1.637" Text=""/>
+                <!--  <Button Content="input ending row" Click="Input_Row_Button"/> -->
+            </StackPanel>
+            <TextBlock x:Name="rowOutput"  Margin="0,-20,601,0"/>
+        </StackPanel>
+        <TextBlock Margin="5,140,718,233"><Run Text="Last cell"/><LineBreak/><Run Text="(e.g. F21)"/></TextBlock>
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="200,120,0,20">
+                <!-- <Button Content="input ending col" Click="Input_Col_Button"/>-->
+            </StackPanel>
+            <TextBlock x:Name="colOutput" Margin="200, -20, 500, 0" />
+        </StackPanel>
+
+
+        <!--///////////////////////////////////////////////////////////////////////////// -->
+        <!-- from email address -->
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="400,25,0,20">
+                <TextBox x:Name="input_from_email"
+                     Width="100" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Text="">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <!-- <Button Content="input ending col" Click="Input_Col_Button"/>-->
+            </StackPanel>
+            <!-- <TextBlock x:Name="input_from_email" Margin="400, -20, 500, 0" /> -->
+        </StackPanel>
+        <TextBlock Text="Email Adress (from)" Margin="400,45,285,348"></TextBlock>
+        <!-- password -->
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="550,25,0,20">
+                <PasswordBox x:Name="input_from_email_password"
+                     Width="100" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"
+                            >
+                    
+                </PasswordBox>
+                <!-- <Button Content="input ending col" Click="Input_Col_Button"/>-->
+            </StackPanel>
+            <!-- <TextBlock x:Name="input_from_email_password" Margin="400, -20, 500, 0" /> -->
+        </StackPanel>
+        <TextBlock Text="Password (from)" Margin="550,45,107,348"></TextBlock>
+
+
+        <!-- to email address -->
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="400,120,283,20">
+                <TextBox x:Name="input_to_email"
+                     Width="96" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Height="17"
+                         Text="">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <!-- <Button Content="input ending col" Click="Input_Col_Button"/>-->
+            </StackPanel>
+            
+            
+            
+            
+            <TextBlock HorizontalAlignment="Left" Height="32" Margin="105,-203,0,0" TextWrapping="Wrap" Width="78" RenderTransformOrigin="0.103,0.5"><Run Text="Sheet Number"/><LineBreak/><Run Text="(e.g. 1"/><Run Text=")"/></TextBlock>
+            <!-- <TextBlock x:Name="input_to_email" Margin="400, 50, 300, 0" /> -->
+        </StackPanel>
+        
+        
+        <TextBlock Text="Email Address (to)" Margin="400,136,285,250"></TextBlock>
+
+
+
+
+        <Button x:Name="file_finder" Content="Choose an Excel file" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="117,186,0,0"  Click="button_file_finder" />
+
+
+        <TextBox x:Name="sheet_num" HorizontalAlignment="Left" Height="20" Margin="117,20,0,0" VerticalAlignment="Top" Width="48" Text=""/>
+
+
+
+
+    </Grid>
+
+</Window>
