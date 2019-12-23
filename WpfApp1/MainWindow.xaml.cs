@@ -42,7 +42,7 @@ namespace WpfApp1
     /// 
     public partial class MainWindow : Window
     {
-        string filename;
+        string filename = "";
         public MainWindow()
         {
             
@@ -50,11 +50,32 @@ namespace WpfApp1
         }
 
             private void excel_button(object sender, RoutedEventArgs e)
-        {
-          
+            {
+            //check if a file is selected and prevent aborting
+            if (filename == "") {
+                MessageBox.Show("Error: Excel file has not been selected.");
+                return;
+            }
+
             Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filename);          
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filename);
+
+
+
+            //check if input sheet value is collect and prevent aborting
+            int number = 1000;
+            if (Int32.TryParse(sheet_num.Text, out number) == false)
+            {
+                MessageBox.Show("Error: Invalid sheet value.");
+                // Kill excel process
+                xlWorkbook.Close(0);
+                xlApp.Quit();
+
+                return;
+            }
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[Int32.Parse(sheet_num.Text)];
+
+
 
             try
             {
@@ -70,7 +91,42 @@ namespace WpfApp1
                 MessageBox.Show(errorMessage, "Error");
             }
 
+            /*
+            //check if starting cell value for area selection is collect and prevent aborting
+            if (start_rowInput.Text == null)
+            {
+                // Kill excel process
+                xlWorkbook.Close(0);
+                xlApp.Quit();
+                MessageBox.Show("Error: Invalid starting cell value.");
+                return;
+            }
+            //check if ending cell value for area selection is collect and prevent aborting
+            if (rowInput.Text == null)
+            {
+                // Kill excel process
+                xlWorkbook.Close(0);
+                xlApp.Quit();
+                MessageBox.Show("Error: Invalid ending cell value.");
+                return;
+            }
+            */
+            
             //copy range from excel to clipboard
+            try
+            {
+                Excel.Range test_range = xlWorksheet.Range[start_rowInput.Text, rowInput.Text];
+
+               
+            }
+            catch (Exception ex)
+            {
+                xlWorkbook.Close(0);
+                xlApp.Quit();
+                MessageBox.Show("Error: Check your cell values");
+                return;
+            }
+            
             Excel.Range range1 = xlWorksheet.Range[start_rowInput.Text, rowInput.Text];
             range1.Copy();
             Clipboard.ContainsImage();
@@ -87,7 +143,7 @@ namespace WpfApp1
                 mail.Subject = "Testing Excel to Email";
 
                 AlternateView alternate = AlternateView.CreateAlternateViewFromString(Clipboard.GetText());
-
+                
 
                 string strHtmlBody =
 
@@ -104,15 +160,22 @@ namespace WpfApp1
                 //send email
                 SmtpServer.Send(mail);
 
-                //Checking messeage
-                MessageBox.Show("Email Sent");
+              
                 mail.Dispose();//clean up
+
+               
+
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+            {   
+                MessageBox.Show("Error: your email/password set is incorrect.");
+                return;
             }
-            //KillSpecificExcelFileProcess(filename);
+
+            xlWorkbook.Close(0);
+            xlApp.Quit();
+            //User feedback(email sent)
+            MessageBox.Show("Email Sent");
         }
 
   

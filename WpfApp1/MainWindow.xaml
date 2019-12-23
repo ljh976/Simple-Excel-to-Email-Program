@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="excb" Content="Call excel!" HorizontalAlignment="Left" Margin="443,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.18,1.504" Click="excel_button" Background="#FFB1B1FF"/>
+        <Button x:Name="excb" Content="Send an email!" HorizontalAlignment="Left" Margin="443,186,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="1.18,1.504" Click="excel_button" Background="#FFB1B1FF"/>
 
 
 
@@ -72,7 +72,7 @@
             </StackPanel>
             <!-- <TextBlock x:Name="input_from_email" Margin="400, -20, 500, 0" /> -->
         </StackPanel>
-        <TextBlock Text="Email Adress (from)" Margin="400,45,285,348"></TextBlock>
+        <TextBlock Text="Email Adress (from)" Margin="400,45,274,348"></TextBlock>
         <!-- password -->
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="550,25,0,20">
