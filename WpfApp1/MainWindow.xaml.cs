@@ -167,7 +167,9 @@ namespace WpfApp1
 
             }
             catch (Exception ex)
-            {   
+            {
+                xlWorkbook.Close(0);
+                xlApp.Quit();
                 MessageBox.Show("Error: your email/password set is incorrect.");
                 return;
             }
