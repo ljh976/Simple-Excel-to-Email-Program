@@ -1,6 +1,5 @@
 # Simple-Excel-to-Email-Program
-A simple program to share data from excel via email without destroying the design/format.
-
+A simple C#(.Net) program to share data from excel via email without destroying the design/format.
 
 How to use:
 ![](sc1.jpg)
